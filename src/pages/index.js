@@ -24,23 +24,23 @@ const IndexPage = ({ data }) => (
           </figure>
         </div>
       ))}
-        {data.allDatoCmsArticle.edges.map(({ node: article }) => (
-            <div key={article.id} className="showcase__item">
-                <figure className="card">
-                    <Link to={`/articles/${article.slug}`} className="card__image">
-                        <Img fluid={article.articleImage.fluid} />
-                    </Link>
-                    <figcaption className="card__caption">
-                        <h6 className="card__title">
-                            <Link to={`/articles/${article.slug}`}>{article.articleTitle}</Link>
-                        </h6>
-                        <div className="card__description">
-                            <p>{article.articleTextContent}</p>
-                        </div>
-                    </figcaption>
-                </figure>
-            </div>
-        ))}
+        {/*{data.allDatoCmsArticle.edges.map(({ node: article }) => (*/}
+        {/*    <div key={article.id} className="showcase__item">*/}
+        {/*        <figure className="card">*/}
+        {/*            <Link to={`/articles/${article.slug}`} className="card__image">*/}
+        {/*                <Img fluid={article.articleImage.fluid} />*/}
+        {/*            </Link>*/}
+        {/*            <figcaption className="card__caption">*/}
+        {/*                <h6 className="card__title">*/}
+        {/*                    <Link to={`/articles/${article.slug}`}>{article.articleTitle}</Link>*/}
+        {/*                </h6>*/}
+        {/*                <div className="card__description">*/}
+        {/*                    <p>{article.articleTextContent}</p>*/}
+        {/*                </div>*/}
+        {/*            </figcaption>*/}
+        {/*        </figure>*/}
+        {/*    </div>*/}
+        {/*))}*/}
     </Masonry>
   </Layout>
 )
@@ -57,21 +57,6 @@ export const query = graphql`
           slug
           excerpt
           coverImage {
-            fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsSizes
-            }
-          }
-        }
-      }
-    },
-    allDatoCmsArticle {
-      edges {
-        node {
-          id
-          articleTitle
-          slug
-          articleTextContent
-          articleImage {
             fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
               ...GatsbyDatoCmsSizes
             }
