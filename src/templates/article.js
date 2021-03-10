@@ -19,18 +19,18 @@ export default ({ data }) => (
   </Layout>
 )
 
-// export const query = graphql`
-// query ArticleQuery($slug: String!) {
-//   article(slug: { eq: $slug }) {
-//     articleTitle
-//     articleTextContent
-//     slug
-//     articleImage {
-//       url
-//       fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
-//         ...GatsbyDatoCmsSizes
-//        }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+query ArticleQuery($slug: String) {
+  article(slug: {eq: $slug}) {
+    slug
+    articleTitle
+    articleTextContent
+    articleImage {
+      url
+      fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+        ...GatsbyDatoCmsSizes
+       }
+    }
+  }
+}
+`
