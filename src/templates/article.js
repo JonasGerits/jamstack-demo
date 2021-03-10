@@ -9,10 +9,10 @@ export default ({ data }) => (
   <Layout>
     <article className="sheet">
       <div className="sheet__inner">
-        <h1 className="sheet__title">{data.article.title}</h1>
-        <p className="sheet__lead">{data.article.content}</p>
+        <h1 className="sheet__title">{data.datoCmsArticle.title}</h1>
+        <p className="sheet__lead">{data.datoCmsArticle.content}</p>
         <div className="sheet__gallery">
-          <Img fluid={data.article.image.fluid} />
+          <Img fluid={data.datoCmsArticle.image.fluid} />
         </div>
       </div>
     </article>
