@@ -29,6 +29,9 @@ const IndexPage = ({ data }) => (
             <div key={article.id} className="showcase__item">
                 <figure className="card">
                     <figcaption className="card__caption">
+                        <Link to={`/works/${work.slug}`} className="card__image">
+                            <Img fluid={article.image.fluid} />
+                        </Link>
                         <h6 className="card__title">
                             <Link to={`/articles/${article.slug}`}>{article.title}</Link>
                         </h6>
