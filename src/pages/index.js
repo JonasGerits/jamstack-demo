@@ -28,9 +28,6 @@ const IndexPage = ({ data }) => (
         {data.allDatoCmsArticle.edges.map(({ node: article }) => (
             <div key={article.id} className="showcase__item">
                 <figure className="card">
-                    <Link to={`/articles/${article.slug}`} className="card__image">
-                        <Img fluid={article.image.fluid} />
-                    </Link>
                     <figcaption className="card__caption">
                         <h6 className="card__title">
                             <Link to={`/articles/${article.slug}`}>{article.title}</Link>
