@@ -11,9 +11,6 @@ export default ({ data }) => (
       <div className="sheet__inner">
         <h1 className="sheet__title">{data.datoCmsArticle.title}</h1>
         <p className="sheet__lead">{data.datoCmsArticle.content}</p>
-        <div className="sheet__gallery">
-          <Img fluid={data.datoCmsArticle.image.fluid} />
-        </div>
       </div>
     </article>
   </Layout>
@@ -27,9 +24,6 @@ query ArticleQuery($slug: String) {
     content
     image {
       url
-      fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
-        ...GatsbyDatoCmsSizes
-       }
     }
   }
 }
