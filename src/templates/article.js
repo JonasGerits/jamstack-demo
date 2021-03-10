@@ -9,10 +9,10 @@ export default ({ data }) => (
   <Layout>
     <article className="sheet">
       <div className="sheet__inner">
-        <h1 className="sheet__title">{data.article.articleTitle}</h1>
-        <p className="sheet__lead">{data.article.articleTextContent}</p>
+        <h1 className="sheet__title">{data.article.title}</h1>
+        <p className="sheet__lead">{data.article.content}</p>
         <div className="sheet__gallery">
-          <Img fluid={data.article.articleImage.fluid} />
+          <Img fluid={data.article.image.fluid} />
         </div>
       </div>
     </article>
@@ -23,9 +23,9 @@ export const query = graphql`
 query ArticleQuery($slug: String) {
   datoCmsArticle(slug: {eq: $slug}) {
     slug
-    articleTitle
-    articleTextContent
-    articleImage {
+    title
+    content
+    image {
       url
       fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
         ...GatsbyDatoCmsSizes
