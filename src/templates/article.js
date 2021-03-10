@@ -33,5 +33,4 @@ query ArticleQuery($slug: String!) {
       }
     }
   }
-}
 `
