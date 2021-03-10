@@ -21,7 +21,7 @@ export default ({ data }) => (
 
 export const query = graphql`
 query ArticleQuery($slug: String) {
-  article(slug: {eq: $slug}) {
+  datoCmsArticle(slug: {eq: $slug}) {
     slug
     articleTitle
     articleTextContent
