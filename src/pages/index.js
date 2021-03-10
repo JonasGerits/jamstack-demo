@@ -63,7 +63,7 @@ export const query = graphql`
           }
         }
       }
-    }
+    },
     allDatoCmsArticle(sort: { fields: [position], order: ASC }) {
       edges {
         node {
