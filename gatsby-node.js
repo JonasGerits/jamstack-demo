@@ -49,5 +49,27 @@ exports.createPages = ({ graphql, actions }) => {
       })
       resolve()
     })
+    graphql(`
+      {
+        allDatoCmsPage {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    `).then(result => {
+      result.data.allDatoCmsPage.edges.map(({ node: page }) => {
+        createPage({
+          path: `pages/${page.slug}`,
+          component: path.resolve(`./src/templates/page.js`),
+          context: {
+            slug: page.slug,
+          },
+        })
+      })
+      resolve()
+    })
   })
 }

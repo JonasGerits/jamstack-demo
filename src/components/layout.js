@@ -41,6 +41,17 @@ const TemplateWrapper = ({ children }) => {
               }
             }
           }
+          allDatoCmsPage {
+            edges {
+              node {
+                pageTitle
+                slug
+                treeParent {
+                  slug
+                }
+              }
+            }
+          }
         }
       `}
       render={data => (
@@ -54,20 +65,11 @@ const TemplateWrapper = ({ children }) => {
               <h6 className="sidebar__title">
                 <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
               </h6>
-              <div
-                className="sidebar__intro"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    data.datoCmsHome.introTextNode.childMarkdownRemark.html
-                }}
-              />
               <ul className="sidebar__menu">
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
+                  <li key={'page-home'}><Link to={`/`}>Home</Link></li>
+                  {data.allDatoCmsPage.edges.map(({ node: page }) => (
+                      <li key={'page-' + page.slug}><Link to={`/pages/${page.slug}`}>{page.pageTitle}</Link></li>
+                  ))}
               </ul>
               <p className="sidebar__social">
                 {data.allDatoCmsSocialProfile.edges.map(({ node: profile }) => (
