@@ -41,7 +41,7 @@ const TemplateWrapper = ({ children }) => {
               }
             }
           }
-          allDatoCmsPage {
+          allDatoCmsPage(filter: {treeParent: {slug: {eq: null}}}) {
             edges {
               node {
                 pageTitle
